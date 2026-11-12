@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediVision AI | Smarter Healthcare</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f7fafc;
+            color: #172b4d;
+        }
+
+        /* Navigation */
+        nav {
+            height: 75px;
+            padding: 0 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: 800;
+            color: #087f8c;
+        }
+
+        .nav-buttons a {
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 600;
+            color: #263746;
+        }
+
+        .nav-buttons .signup {
+            background: #087f8c;
+            color: white;
+            padding: 11px 20px;
+            border-radius: 8px;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 570px;
+            padding: 90px 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            background: linear-gradient(120deg, #e9fafa, #f4f8ff);
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #d3f3f0;
+            color: #087f8c;
+            padding: 9px 15px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: 49px;
+            line-height: 1.2;
+            margin-bottom: 22px;
+            color: #142d45;
+        }
+
+        .hero h1 span {
+            color: #087f8c;
+        }
+
+        .hero p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #607080;
+            margin-bottom: 30px;
+        }
+
+        .primary-btn {
+            display: inline-block;
+            background: #087f8c;
+            color: white;
+            padding: 15px 27px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .primary-btn:hover {
+            background: #06636d;
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            width: 340px;
+            height: 340px;
+            border-radius: 35px;
+            background: linear-gradient(145deg, #087f8c, #36b7ae);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 100px;
+            box-shadow: 0 25px 55px rgba(8,127,140,0.2);
+            flex-shrink: 0;
+        }
+
+        /* Features */
+        .features {
+            padding: 75px 8%;
+            text-align: center;
+        }
+
+        .section-heading {
+            font-size: 32px;
+            margin-bottom: 12px;
+            color: #172b4d;
+        }
+
+        .section-description {
+            color: #718096;
+            margin-bottom: 45px;
+            line-height: 1.6;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px 22px;
+            border-radius: 15px;
+            text-align: left;
+            border: 1px solid #e8eef2;
+            transition: 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.07);
+        }
+
+        .feature-icon {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 17px;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: #718096;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* How it works */
+        .how-it-works {
+            padding: 65px 10%;
+            background: #edf7f7;
+            text-align: center;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .step {
+            padding: 20px;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            background: #087f8c;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 19px;
+        }
+
+        .step h3 {
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            color: #718096;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: #142d45;
+            color: #c5d2dc;
+            text-align: center;
+            padding: 30px 15px;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero-visual {
+                width: 250px;
+                height: 250px;
+                font-size: 75px;
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 550px) {
+            nav {
+                padding: 0 5%;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .nav-buttons a {
+                margin-left: 8px;
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 65px 7%;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .feature-grid,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .section-heading {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">✚ MediVision AI</div>
+
+        <div class="nav-buttons">
+            <a href="/login">Login</a>
+            <a href="/register" class="signup">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="tag">✦ AI-POWERED HEALTHCARE ASSISTANCE</div>
+
+            <h1>
+                Smarter Healthcare Insights,
+                <span>Powered by AI.</span>
+            </h1>
+
+            <p>
+                Your personal healthcare assistance platform.
+                Understand medical information, analyse reports,
+                explore health insights and take informed steps
+                towards better health.
+            </p>
+
+            <a href="/register" class="primary-btn">
+                Get Started &nbsp; →
+            </a>
+        </div>
+
+        <div class="hero-visual">
+            ✚
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="section-heading">Explore MediVision AI</h2>
+
+        <p class="section-description">
+            Intelligent tools designed to make healthcare information
+            easier to understand.
+        </p>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3>AI Health Assistant</h3>
+                <p>
+                    Ask health-related questions and receive
+                    easy-to-understand information.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📄</div>
+                <h3>Medical Report Analysis</h3>
+                <p>
+                    Upload medical reports and understand
+                    important information in simple language.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔬</div>
+                <h3>Medical Image Analysis</h3>
+                <p>
+                    Explore AI-generated explanations of
+                    uploaded medical images.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">❤️</div>
+                <h3>Health Tracking</h3>
+                <p>
+                    Track BMI, maintain health records and
+                    explore useful health tips.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <h2 class="section-heading">Healthcare Made Simpler</h2>
+
+        <p class="section-description">
+            Get started in three simple steps.
+        </p>
+
+        <div class="steps">
+
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Create Your Account</h3>
+                <p>Register and access your personal MediVision dashboard.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Explore AI Tools</h3>
+                <p>Ask questions, upload reports and explore health tools.</p>
+            </div>
+
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Understand Your Health</h3>
+                <p>Explore the information and make more informed decisions.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <strong>✚ MediVision AI</strong>
+        <p>Making healthcare information easier to understand through AI.</p>
+        <p>
+            Disclaimer: MediVision AI provides informational assistance
+            and is not a substitute for professional medical advice,
+            diagnosis or treatment.
+        </p>
+        <p>© 2026 MediVision AI. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

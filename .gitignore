@@ -1,0 +1,17 @@
+# Python virtual environment
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment variables and secrets
+.env
+.env.*
+
+# User uploaded files
+uploads/*
+
+# Keep uploads folder structure
+!uploads/.gitkeep

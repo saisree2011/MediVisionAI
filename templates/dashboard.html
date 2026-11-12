@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediVision AI | Your Health, Intelligently Managed</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <a href="/dashboard" class="brand">
+            <span class="brand-icon">✚</span>
+            <span>MediVision<span class="brand-highlight">AI</span></span>
+        </a>
+
+        <div class="sidebar-label">WORKSPACE</div>
+
+        <nav class="sidebar-nav">
+
+            <a href="/dashboard" class="nav-link active">
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="#assistant" class="nav-link">
+                <span class="nav-icon">✧</span>
+                <span>AI Assistant</span>
+            </a>
+
+            <a href="#reports" class="nav-link">
+                <span class="nav-icon">▧</span>
+                <span>Medical Reports</span>
+            </a>
+
+            <a href="#image-analysis" class="nav-link">
+                <span class="nav-icon">▣</span>
+                <span>Image Analysis</span>
+            </a>
+
+            <a href="#chat-history" class="nav-link">
+                <span class="nav-icon">▤</span>
+                <span>Chat History</span>
+            </a>
+
+
+            <a href="#history" class="nav-link">
+                <span class="nav-icon">▥</span>
+                <span>Medical History</span>
+            </a>
+
+            <a href="#image-history" class="nav-link">
+                <span class="nav-icon">◷</span>
+                <span>Image History</span>
+            </a>
+
+            <div class="sidebar-label secondary-label">HEALTH TOOLS</div>
+
+            <a href="#health" class="nav-link">
+                <span class="nav-icon">♡</span>
+                <span>Health Metrics</span>
+            </a>
+
+            <a href="#health-tips" class="nav-link">
+                <span class="nav-icon">✿</span>
+                <span>Daily Health Tips</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-help">
+                <span>✦</span>
+                <div>
+                    <strong>Your health matters</strong>
+                    <small>Stay informed. Stay healthy.</small>
+                </div>
+            </div>
+
+            <a href="/logout" class="nav-link logout">
+                <span class="nav-icon">↪</span>
+                <span>Logout</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div class="topbar-heading">
+                <span class="eyebrow">YOUR PERSONAL HEALTH SPACE</span>
+                <h1>Patient Dashboard</h1>
+                <p>Everything you need to understand your health, in one place.</p>
+            </div>
+
+            <div class="profile">
+
+                <div class="avatar">{{ name[0] | upper }}</div>
+
+                <div class="profile-details">
+                    <strong>{{ name }}</strong>
+                    <small>Patient Account</small>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- WELCOME -->
+        <section class="welcome-section">
+
+            <div class="welcome-content">
+
+                <span class="welcome-tag">✦ WELCOME TO MEDIVISION AI</span>
+
+                <h2>Your health journey,<br>
+                    <span>made smarter.</span>
+                </h2>
+
+                <p>
+                    Welcome back, {{ name }}. Explore your health information,
+                    understand medical reports and get AI-powered explanations.
+                </p>
+
+                <a href="#assistant" class="welcome-button">
+                    Explore AI Assistant <span>→</span>
+                </a>
+
+            </div>
+
+            <div class="welcome-visual">
+                <div class="visual-circle circle-one"></div>
+                <div class="visual-circle circle-two"></div>
+                <div class="medical-symbol">✚</div>
+                <div class="visual-caption">AI-powered<br>health insights</div>
+            </div>
+
+        </section>
+
+
+        <!-- DASHBOARD OVERVIEW -->
+        <section class="dashboard-overview">
+
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">YOUR WORKSPACE</span>
+                    <h2>Explore your health tools</h2>
+                    <p>Choose a service to get started.</p>
+                </div>
+            </div>
+
+
+            <div class="cards">
+
+                <div class="card card-teal">
+                    <div class="card-top">
+                        <div class="card-icon">✧</div>
+                        <span class="card-arrow">↗</span>
+                    </div>
+                    <h3>AI Health Assistant</h3>
+                    <p>Ask health-related questions and receive AI-generated explanations.</p>
+                    <a href="#assistant">Start conversation <span>→</span></a>
+                </div>
+
+
+                <div class="card card-purple">
+                    <div class="card-top">
+                        <div class="card-icon">▧</div>
+                        <span class="card-arrow">↗</span>
+                    </div>
+                    <h3>Medical Reports</h3>
+                    <p>Upload your medical reports and understand their contents.</p>
+                    <a href="#reports">Explore reports <span>→</span></a>
+                </div>
+
+
+                <div class="card card-blue">
+                    <div class="card-top">
+                        <div class="card-icon">▣</div>
+                        <span class="card-arrow">↗</span>
+                    </div>
+                    <h3>Image Analysis</h3>
+                    <p>Receive AI-generated general explanations of medical images.</p>
+                    <a href="#image-analysis">Analyse image <span>→</span></a>
+                </div>
+
+
+                <div class="card card-orange">
+                    <div class="card-top">
+                        <div class="card-icon">♡</div>
+                        <span class="card-arrow">↗</span>
+                    </div>
+                    <h3>Health Metrics</h3>
+                    <p>Calculate your BMI and keep track of saved measurements.</p>
+                    <a href="#health">Track metrics <span>→</span></a>
+                </div>
+
+
+                <div class="card card-pink">
+                    <div class="card-top">
+                        <div class="card-icon">▤</div>
+                        <span class="card-arrow">↗</span>
+                    </div>
+                    <h3>Medical History</h3>
+                    <p>Access your previously uploaded medical reports.</p>
+                    <a href="#history">View history <span>→</span></a>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- AI HEALTH ASSISTANT -->
+        <section class="chat-section feature-section" id="assistant">
+
+            <div class="feature-heading">
+                <div class="feature-icon">✧</div>
+                <div>
+                    <span class="eyebrow">AI-POWERED SUPPORT</span>
+                    <h2>MediVision AI Assistant</h2>
+                    <p>Your conversational health information companion.</p>
+                </div>
+            </div>
+
+            <div id="chat-messages" class="chat-messages">
+                <div class="bot-message">
+                    Hello {{ name }}! I'm MediVision AI.
+                    How can I help you today?
+                </div>
+            </div>
+
+            <div class="chat-input-area">
+
+                <input
+                    type="text"
+                    id="user-message"
+                    placeholder="Ask your health-related question..."
+                >
+
+                <button id="mic-button"
+                    onclick="startVoiceInput()"
+                    title="Speak your question">🎤</button>
+
+                <button id="send-button" onclick="sendMessage()">
+                    Send →
+                </button>
+
+            </div>
+
+            <p class="medical-note">
+                AI-generated information is not a medical diagnosis.
+                Consult a qualified healthcare professional.
+            </p>
+
+        </section>
+
+
+        <!-- MEDICAL REPORTS -->
+        <section class="feature-section" id="reports">
+
+            <div class="feature-heading">
+                <div class="feature-icon purple-icon">▧</div>
+                <div>
+                    <span class="eyebrow">DOCUMENT INTELLIGENCE</span>
+                    <h2>Medical Report Analysis</h2>
+                    <p>Upload your PDF report to receive an AI-generated explanation.</p>
+                </div>
+            </div>
+
+            <div class="report-upload">
+
+                <div class="upload-symbol">↑</div>
+
+                <h3>Upload your medical report</h3>
+                <p>Select a PDF file from your device.</p>
+
+                <input type="file" id="report-file" accept=".pdf">
+
+                <button onclick="uploadReport()" id="upload-button">
+                    Upload and Analyze
+                </button>
+
+                <p id="upload-status"></p>
+
+                <div id="report-analysis"></div>
+
+            </div>
+
+            <p class="medical-note">
+                This feature explains report contents; it does not diagnose medical conditions.
+            </p>
+
+        </section>
+
+
+        <!-- IMAGE ANALYSIS -->
+        <section class="feature-section" id="image-analysis">
+
+            <div class="feature-heading">
+                <div class="feature-icon blue-icon">▣</div>
+                <div>
+                    <span class="eyebrow">VISUAL HEALTH INSIGHTS</span>
+                    <h2>Medical Image Analysis</h2>
+                    <p>Upload a supported medical image for an AI-generated explanation.</p>
+                </div>
+            </div>
+
+            <div class="image-upload">
+
+                <div class="upload-symbol">↑</div>
+
+                <h3>Upload a medical image</h3>
+                <p>Supported formats: JPG, JPEG, PNG and WEBP.</p>
+
+                <input
+                    type="file"
+                    id="medical-image"
+                    accept=".jpg,.jpeg,.png,.webp"
+                >
+
+                <button onclick="analyzeImage()" id="image-button">
+                    Upload and Analyze
+                </button>
+
+                <p id="image-status"></p>
+
+                <div id="image-result"></div>
+
+            </div>
+
+            <p class="medical-note">
+                AI-generated explanations are educational and not a substitute
+                for professional medical interpretation.
+            </p>
+
+        </section>
+
+
+        <!-- IMAGE HISTORY -->
+        <section class="feature-section" id="image-history">
+
+            <div class="feature-heading">
+                <div class="feature-icon blue-icon">◷</div>
+                <div>
+                    <span class="eyebrow">SAVED RECORDS</span>
+                    <h2>Medical Image History</h2>
+                    <p>Access your previously uploaded medical images and analyses.</p>
+                </div>
+            </div>
+
+            <button onclick="loadImageHistory()">View Image History</button>
+
+            <div id="image-history-container"></div>
+
+        </section>
+
+
+        <!-- MEDICAL HISTORY -->
+        <section class="feature-section" id="history">
+
+            <div class="feature-heading">
+                <div class="feature-icon purple-icon">▤</div>
+                <div>
+                    <span class="eyebrow">YOUR RECORDS</span>
+                    <h2>Medical History</h2>
+                    <p>View your previously uploaded medical reports.</p>
+                </div>
+            </div>
+
+            <button onclick="loadReportHistory()">View Previous Reports</button>
+
+            <div id="report-history"></div>
+
+        </section>
+
+
+        <!-- CHAT HISTORY -->
+        <section class="feature-section" id="chat-history">
+
+            <div class="feature-heading">
+                <div class="feature-icon">◷</div>
+                <div>
+                    <span class="eyebrow">PAST CONVERSATIONS</span>
+                    <h2>Chat History</h2>
+                    <p>Revisit your previous conversations with MediVision AI.</p>
+                </div>
+            </div>
+
+            <div id="chat-history-container">
+                <button onclick="loadChatHistory()">
+                    View Previous Conversations
+                </button>
+            </div>
+
+            <div id="chat-messages-container"></div>
+
+        </section>
+
+
+        <!-- HEALTH METRICS -->
+        <section class="feature-section" id="health">
+
+            <div class="feature-heading">
+                <div class="feature-icon orange-icon">♡</div>
+                <div>
+                    <span class="eyebrow">PERSONAL HEALTH TRACKING</span>
+                    <h2>Health Metrics</h2>
+                    <p>Calculate your Body Mass Index and view saved measurements.</p>
+                </div>
+            </div>
+
+            <div class="bmi-calculator">
+
+                <h3>BMI Calculator</h3>
+                <p>Enter your height and weight to calculate your BMI.</p>
+
+                <label for="height">Height (cm)</label>
+                <input type="number" id="height" placeholder="Enter height">
+
+                <label for="weight">Weight (kg)</label>
+                <input type="number" id="weight" placeholder="Enter weight">
+
+                <button onclick="calculateBMI()">Calculate BMI →</button>
+
+                <div id="bmi-result"></div>
+
+            </div>
+
+            <div class="history-heading">
+                <h3>BMI History</h3>
+                <button onclick="loadHealthHistory()">View BMI History</button>
+            </div>
+
+            <div id="health-history"></div>
+
+        </section>
+
+
+        <!-- HEALTH TIPS -->
+        <section class="feature-section" id="health-tips">
+
+            <div class="feature-heading">
+                <div class="feature-icon green-icon">✿</div>
+                <div>
+                    <span class="eyebrow">HEALTHY HABITS</span>
+                    <h2>Daily Health Tips</h2>
+                    <p>Small steps towards a healthier lifestyle.</p>
+                </div>
+            </div>
+
+            <div class="health-tip-card">
+
+                <div class="tip-decoration">✦</div>
+
+                <h3 id="tip-title">Stay Hydrated</h3>
+
+                <p id="tip-content">
+                    Drink sufficient water throughout the day
+                    to maintain proper hydration.
+                </p>
+
+                <button onclick="showNextTip()">Next Health Tip →</button>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer>
+            <strong>MediVision AI</strong>
+            <p>AI-powered healthcare information and assistance.</p>
+            <small>
+                AI-generated information is not a substitute for professional medical advice.
+            </small>
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- EXISTING JAVASCRIPT FILES - KEEP THESE -->
+ <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
+<script src="{{ url_for('static', filename='chat.js') }}"></script>
+<script src="{{ url_for('static', filename='report.js') }}"></script>
+<script src="{{ url_for('static', filename='history.js') }}"></script>
+<script src="{{ url_for('static', filename='health.js') }}"></script>
+<script src="{{ url_for('static', filename='health_history.js') }}"></script>
+<script src="{{ url_for('static', filename='image.js') }}"></script>
+<script src="{{ url_for('static', filename='health_tips.js') }}"></script>
+<script src="{{ url_for('static', filename='image_history.js') }}"></script>
+<script src="{{ url_for('static', filename='chat_history.js') }}"></script>
+<script src="{{ url_for('static', filename='navigation.js') }}"></script>
+
+</body>
+</html>
